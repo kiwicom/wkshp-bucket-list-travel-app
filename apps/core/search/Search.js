@@ -95,6 +95,10 @@ class SearchScene extends React.Component<Props, State> {
     this.props.navigation.navigate(Routes.RESULTS);
   };
 
+  goToPlayground = () => {
+    this.props.navigation.navigate(Routes.PLAYGROUND);
+  };
+
   isMobile = width => width < defaultTokens.widthBreakpointLargeMobile;
 
   onLayout = e => {
@@ -166,6 +170,13 @@ class SearchScene extends React.Component<Props, State> {
             <Button onPress={this.goToResults} disabled={searchDisabled}>
               <Text type="white" weight="bold" expo>
                 Search
+              </Text>
+            </Button>
+          </View>
+          <View style={styles.searchButtonContainer}>
+            <Button onPress={this.goToPlayground} type="secondary">
+              <Text type="primary" weight="bold" expo>
+                Playground
               </Text>
             </Button>
           </View>

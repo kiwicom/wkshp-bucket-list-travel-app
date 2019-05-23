@@ -6,12 +6,14 @@ import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
 import SearchScreen from '../screens/SearchScreen';
 import ResultsScreen from '../screens/ResultsScreen';
+import PlaygroundScreen from '../screens/PlaygroundScreen';
 
 export default createAppContainer(
   createStackNavigator(
     {
       [Routes.SEARCH]: SearchScreen,
       [Routes.RESULTS]: ResultsScreen,
+      [Routes.PLAYGROUND]: PlaygroundScreen,
     },
     {
       defaultNavigationOptions: {
