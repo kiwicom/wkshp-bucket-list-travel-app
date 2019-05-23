@@ -1,0 +1,27 @@
+{
+  "name": "@bucket-list-travel-app/components",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "storybook": "start-storybook -p 9009 -c storybook -s ../../node_modules/@kiwicom/universal-components/fonts"
+  },
+  "dependencies": {
+    "@bucket-list-travel-app/utils": "^0",
+    "babel-loader": "^8.0.5",
+    "react-native-web-image-loader": "^0.0.7",
+    "@kiwicom/universal-components": "0.0.17",
+    "@kiwicom/orbit-design-tokens": "0.6.0",
+    "@storybook/react": "^4.1.13",
+    "@storybook/react-native": "^4.1.13",
+    "@storybook/addon-actions": "^4.1.13",
+    "@storybook/addon-knobs": "^4.1.13",
+    "@storybook/addon-links": "^4.1.13",
+    "@storybook/addon-ondevice-knobs": "^4.1.13"
+  },
+  "peerDependencies": {
+    "react": "^",
+    "react-native": "^",
+    "react-native-web": "^",
+    "@kiwicom/orbit-design-tokens": "^"
+  }
+}
