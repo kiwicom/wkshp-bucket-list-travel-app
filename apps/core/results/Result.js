@@ -50,10 +50,7 @@ class Result extends React.Component<Props> {
 
   render() {
     const { itinerary } = this.props;
-    const bookingLabel = this.getBookingLabel(
-      itinerary?.price?.amount,
-      itinerary?.price?.currency,
-    );
+    const bookingLabel = this.getBookingLabel(100, 'EUR');
 
     const sectorsData = itinerary?.sectors ?? [];
     const sectors = sectorsData.map((sector, index) => {
@@ -62,8 +59,8 @@ class Result extends React.Component<Props> {
         <View key={index}>
           {index > 0 && (
             <StopoverInfo
-              cityName={sector?.departure?.stop?.city?.name}
-              locationId={sector?.departure?.stop?.id}
+              cityName={'CITY_NAME'}
+              locationId={'BUD'}
               stayDuration={getDurationInNights(
                 sectorsData[index - 1]?.arrival?.time?.utc,
                 sector?.departure?.time?.utc,
@@ -71,8 +68,8 @@ class Result extends React.Component<Props> {
             />
           )}
           <SectorSummary
-            departureInfo={formatDate(sector?.departure?.time?.local)}
-            durationInfo={formatMinutesDuration(sector?.duration)}
+            departureInfo={formatDate(10000000000)}
+            durationInfo={'2h' || formatMinutesDuration(sector?.duration)}
             carriers={carriers}
           />
         </View>
@@ -81,15 +78,9 @@ class Result extends React.Component<Props> {
 
     return (
       <Card style={styles.itinerary}>
-        <ItinerarySpotName
-          label="Start from"
-          name={itinerary?.departure?.stop?.city?.name}
-        />
+        <ItinerarySpotName label="Start from" name={'START_FROM_CITY_NAME'} />
         {sectors}
-        <ItinerarySpotName
-          label="End in"
-          name={itinerary?.arrival?.stop?.city?.name}
-        />
+        <ItinerarySpotName label="End in" name={'END_IN_CITY_NAME'} />
         <View style={styles.menuWrapper}>
           <Button
             style={styles.bookButton}
@@ -134,35 +125,10 @@ export default createFragmentContainer(Result, {
   itinerary: graphql`
     fragment Result_itinerary on Itinerary {
       bookingURL
-      price {
-        amount
-        currency
-      }
-      departure {
-        stop {
-          city {
-            name
-          }
-        }
-      }
-      arrival {
-        stop {
-          city {
-            name
-          }
-        }
-      }
       sectors {
         duration
         departure {
-          stop {
-            id
-            city {
-              name
-            }
-          }
           time {
-            local
             utc
           }
         }

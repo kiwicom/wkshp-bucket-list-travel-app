@@ -4,9 +4,27 @@ import * as React from 'react';
 import { withContext } from '@bucket-list-travel-app/utils';
 
 const defaultState = {
-  origin: null,
-  outboundDate: null,
-  stopovers: [],
+  origin: {
+    id: 'BUD',
+    name: 'Budapest Ferenc Liszt International',
+    cityName: 'Budapest',
+    countryCode: 'HU',
+  },
+  outboundDate: new Date(),
+  stopovers: [
+    {
+      id: 'CDG',
+      name: 'Charles de Gaulle Airport',
+      cityName: 'Paris',
+      countryCode: 'FR',
+    },
+    {
+      id: 'JFK',
+      name: 'John F. Kennedy International',
+      cityName: 'New York',
+      countryCode: 'US',
+    },
+  ],
   setOrigin: () => {},
   setOutboundDate: () => {},
   replaceStopover: () => {},

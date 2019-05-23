@@ -13,37 +13,12 @@ declare export opaque type Result_itinerary$ref: FragmentReference;
 declare export opaque type Result_itinerary$fragmentType: Result_itinerary$ref;
 export type Result_itinerary = {|
   +bookingURL: ?string,
-  +price: ?{|
-    +amount: ?number,
-    +currency: ?string,
-  |},
-  +departure: ?{|
-    +stop: ?{|
-      +city: ?{|
-        +name: ?string
-      |}
-    |}
-  |},
-  +arrival: ?{|
-    +stop: ?{|
-      +city: ?{|
-        +name: ?string
-      |}
-    |}
-  |},
   +sectors: ?$ReadOnlyArray<?{|
     +duration: ?number,
     +departure: ?{|
-      +stop: ?{|
-        +id: string,
-        +city: ?{|
-          +name: ?string
-        |},
-      |},
       +time: ?{|
-        +local: ?number,
-        +utc: ?number,
-      |},
+        +utc: ?number
+      |}
     |},
     +arrival: ?{|
       +time: ?{|
@@ -67,45 +42,26 @@ export type Result_itinerary$key = {
 
 
 const node/*: ReaderFragment*/ = (function(){
-var v0 = {
-  "kind": "LinkedField",
-  "alias": null,
-  "name": "city",
-  "storageKey": null,
-  "args": null,
-  "concreteType": "LocationArea",
-  "plural": false,
-  "selections": [
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "name",
-      "args": null,
-      "storageKey": null
-    }
-  ]
-},
-v1 = [
+var v0 = [
   {
     "kind": "LinkedField",
     "alias": null,
-    "name": "stop",
+    "name": "time",
     "storageKey": null,
     "args": null,
-    "concreteType": "Location",
+    "concreteType": "DateType",
     "plural": false,
     "selections": [
-      (v0/*: any*/)
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "utc",
+        "args": null,
+        "storageKey": null
+      }
     ]
   }
-],
-v2 = {
-  "kind": "ScalarField",
-  "alias": null,
-  "name": "utc",
-  "args": null,
-  "storageKey": null
-};
+];
 return {
   "kind": "Fragment",
   "name": "Result_itinerary",
@@ -119,51 +75,6 @@ return {
       "name": "bookingURL",
       "args": null,
       "storageKey": null
-    },
-    {
-      "kind": "LinkedField",
-      "alias": null,
-      "name": "price",
-      "storageKey": null,
-      "args": null,
-      "concreteType": "Price",
-      "plural": false,
-      "selections": [
-        {
-          "kind": "ScalarField",
-          "alias": null,
-          "name": "amount",
-          "args": null,
-          "storageKey": null
-        },
-        {
-          "kind": "ScalarField",
-          "alias": null,
-          "name": "currency",
-          "args": null,
-          "storageKey": null
-        }
-      ]
-    },
-    {
-      "kind": "LinkedField",
-      "alias": null,
-      "name": "departure",
-      "storageKey": null,
-      "args": null,
-      "concreteType": "RouteStop",
-      "plural": false,
-      "selections": (v1/*: any*/)
-    },
-    {
-      "kind": "LinkedField",
-      "alias": null,
-      "name": "arrival",
-      "storageKey": null,
-      "args": null,
-      "concreteType": "RouteStop",
-      "plural": false,
-      "selections": (v1/*: any*/)
     },
     {
       "kind": "LinkedField",
@@ -189,46 +100,7 @@ return {
           "args": null,
           "concreteType": "RouteStop",
           "plural": false,
-          "selections": [
-            {
-              "kind": "LinkedField",
-              "alias": null,
-              "name": "stop",
-              "storageKey": null,
-              "args": null,
-              "concreteType": "Location",
-              "plural": false,
-              "selections": [
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "id",
-                  "args": null,
-                  "storageKey": null
-                },
-                (v0/*: any*/)
-              ]
-            },
-            {
-              "kind": "LinkedField",
-              "alias": null,
-              "name": "time",
-              "storageKey": null,
-              "args": null,
-              "concreteType": "DateType",
-              "plural": false,
-              "selections": [
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "local",
-                  "args": null,
-                  "storageKey": null
-                },
-                (v2/*: any*/)
-              ]
-            }
-          ]
+          "selections": (v0/*: any*/)
         },
         {
           "kind": "LinkedField",
@@ -238,20 +110,7 @@ return {
           "args": null,
           "concreteType": "RouteStop",
           "plural": false,
-          "selections": [
-            {
-              "kind": "LinkedField",
-              "alias": null,
-              "name": "time",
-              "storageKey": null,
-              "args": null,
-              "concreteType": "DateType",
-              "plural": false,
-              "selections": [
-                (v2/*: any*/)
-              ]
-            }
-          ]
+          "selections": (v0/*: any*/)
         },
         {
           "kind": "LinkedField",
@@ -288,5 +147,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'f7510f04636fff8b15885db62d01745a';
+(node/*: any*/).hash = 'a3c53868ec67c46712042c0109b96571';
 module.exports = node;
