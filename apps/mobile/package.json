@@ -1,0 +1,26 @@
+{
+  "name": "@bucket-list-travel-app/mobile",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "expo start --clear",
+    "prestart": "node scripts/linkWorkspaces.js"
+  },
+  "dependencies": {
+    "@bucket-list-travel-app/core": "^0",
+    "@bucket-list-travel-app/navigation": "^0",
+    "crna-make-symlinks-for-yarn-workspaces": "^1.0.1",
+    "expo": "^32.0.5",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-navigation": "^3.9.1"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^5.0.0"
+  },
+  "peerDependencies": {
+    "@kiwicom/orbit-design-tokens": "^",
+    "@kiwicom/universal-components": "^"
+  }
+}

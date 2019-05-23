@@ -1,0 +1,62 @@
+{
+  "name": "bucket-list-travel-app",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "contributors": [
+    {
+      "name": "Robin Cussol",
+      "email": "me@robincussol.com",
+      "url": "https://www.robincussol.com/"
+    },
+    {
+      "name": "Josef Duda"
+    }
+  ],
+  "scripts": {
+    "web": "yarn workspace @bucket-list-travel-app/web dev",
+    "mobile": "yarn workspace @bucket-list-travel-app/mobile start",
+    "storybook:web": "yarn workspace @bucket-list-travel-app/components storybook",
+    "storybook:mobile": "yarn workspace @bucket-list-travel-app/mobile-storybook start",
+    "get-graphql-schema": "yarn babel-node ./scripts/getGraphQLSchema.js",
+    "relay": "yarn babel-node scripts/relay-compiler.js",
+    "lint": "eslint . --report-unused-disable-directives",
+    "flow": "flow --include-warnings"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@kiwicom/babel-preset-kiwicom": "^2.8.0",
+    "@kiwicom/eslint-config": "^4.0.0",
+    "@kiwicom/orbit-design-tokens": "0.6.0",
+    "@kiwicom/universal-components": "0.0.17",
+    "@kiwicom/fetch": "^2.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-jsx-remove-data-test-id": "^2.0.0",
+    "babel-plugin-react-native-web": "^0.10.1",
+    "babel-plugin-relay": "^4.0.0",
+    "babel-preset-expo": "^5.0.0",
+    "concurrently": "^4.1.0",
+    "date-fns": "2.0.0-alpha.27",
+    "eslint": "^5.16.0",
+    "file-loader": "^3.0.1",
+    "flow-bin": "^0.98.0",
+    "graphql": "^14.0.0",
+    "next": "^8.0.3",
+    "next-images": "^1.0.4",
+    "next-transpile-modules": "^2.3.1",
+    "react": "16.6.0",
+    "react-art": "16.6.0",
+    "react-dom": "16.6.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-dotenv": "^0.2.0",
+    "react-native-web": "^0.10.1",
+    "webpack": "^4.29.1"
+  }
+}

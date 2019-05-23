@@ -1,0 +1,13 @@
+{
+  "name": "@bucket-list-travel-app/utils",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.js",
+  "dependencies": {
+    "react-fast-compare": "^2.0.4"
+  },
+  "peerDependencies": {
+    "react": "^",
+    "date-fns": "^2.x.x"
+  }
+}

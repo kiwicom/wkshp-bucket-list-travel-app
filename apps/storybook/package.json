@@ -1,0 +1,39 @@
+{
+  "name": "@bucket-list-travel-app/mobile-storybook",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start:webUI": "storybook -c configs/mobile start -p 7007",
+    "start:expo": "expo start --clear",
+    "start": "yarn concurrently \"yarn start:webUI\" \"yarn start:expo\"",
+    "prestart": "node scripts/linkWorkspaces.js && rnstl --searchDir ../../packages/components/src"
+  },
+  "dependencies": {
+    "@kiwicom/universal-components": "0.0.17",
+    "@storybook/addon-actions": "^4.1.13",
+    "@storybook/addon-knobs": "^4.1.13",
+    "@storybook/addon-links": "^4.1.13",
+    "@storybook/addon-ondevice-knobs": "^4.1.13",
+    "@storybook/react-native": "^4.1.13",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "concurrently": "^4.1.0",
+    "react-native-storybook-loader": "^1.8.0"
+  },
+  "peerDependencies": {
+    "crna-make-symlinks-for-yarn-workspaces": "^",
+    "expo": "^",
+    "react": "16.5.0",
+    "react-art": "16.5.0",
+    "react-dom": "16.5.0"
+  },
+  "config": {
+    "react-native-storybook-loader": {
+      "pattern": "**/*.stories.js",
+      "outputFile": "config/storyLoader.js"
+    }
+  }
+}

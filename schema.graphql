@@ -1,0 +1,112 @@
+directive @cacheControl(maxAge: Int, scope: CacheControlScope) on FIELD_DEFINITION | OBJECT | INTERFACE
+
+enum CacheControlScope {
+  PUBLIC
+  PRIVATE
+}
+
+type Carrier {
+  code: String
+}
+
+type Coordinates {
+  lat: Float
+  lng: Float
+}
+
+input DateRange {
+  start: String!
+  end: String!
+}
+
+type DateType {
+  local: Float
+  utc: Float
+}
+
+type Itinerary {
+  id: ID!
+  bookingToken: String
+  bookingURL: String
+  price: Price
+  arrival: RouteStop
+  departure: RouteStop
+  sectors: [Sector]
+}
+
+type Location {
+  id: ID!
+  name: String
+  slug: String
+  type: String
+  timezone: String
+  coordinates: Coordinates
+  city: LocationArea
+  country: LocationArea
+}
+
+type LocationArea {
+  id: ID!
+  code: String
+  slug: String
+  name: String
+}
+
+input LocationsByTermInput {
+  term: String!
+  limit: Int
+}
+
+input PassengersInput {
+  adults: Int
+  children: Int
+  infants: Int
+}
+
+type Price {
+  amount: Float
+  currency: String
+}
+
+type Query {
+  search(input: SearchParams!): [Itinerary]
+  locationsByTerm(input: LocationsByTermInput!): [Location]
+}
+
+type RouteStop {
+  time: DateType
+  stop: Location
+}
+
+input SearchParams {
+  origin: String!
+  destination: String
+  outboundDate: DateRange!
+  inboundDate: DateRange
+  passengers: PassengersInput
+  stopovers: [Stopover!]!
+}
+
+type Sector {
+  duration: Int
+  segments: [Segment]
+  departure: RouteStop
+  arrival: RouteStop
+}
+
+type Segment {
+  id: ID!
+  carrier: Carrier
+  duration: Int
+  departure: RouteStop
+  arrival: RouteStop
+}
+
+input Stopover {
+  locations: [String]
+  nightsFrom: Int
+  nightsTo: Int
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
