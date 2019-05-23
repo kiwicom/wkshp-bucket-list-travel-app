@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import { View } from 'react-native';
-import { StyleSheet, Text } from '@kiwicom/universal-components';
-import { defaultTokens } from '@kiwicom/orbit-design-tokens';
+import { Text } from '@kiwicom/universal-components';
 
 import type { StopoverInfoProps } from './StopoverInfoTypes';
 
@@ -12,9 +11,9 @@ export default function StopoverInfo({
   stayDuration,
 }: StopoverInfoProps) {
   return (
-    <View style={styles.container}>
+    <View>
       {cityName && (
-        <Text size="large" weight="bold" style={styles.cityName}>
+        <Text size="large" weight="bold">
           {cityName}
         </Text>
       )}
@@ -26,16 +25,3 @@ export default function StopoverInfo({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-    borderRadius: 4,
-    backgroundColor: defaultTokens.paletteCloudLight,
-  },
-  cityName: {
-    flex: 1,
-  },
-});
